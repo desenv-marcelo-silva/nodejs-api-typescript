@@ -1,15 +1,9 @@
 import { ForecastPoint } from './../clients/ForecastPoint';
-import { InternalError } from './../util/errors/internal-error';
 import { StormGlass } from '@src/clients/stormGlass';
 import { Beach } from './Beach';
 import { BeachForecast } from './BeachForecast';
 import { TimeForecast } from './TimeForecast';
-
-export class ForecastProcessingInternalError extends InternalError {
-  constructor(message: string) {
-    super(`Unexpected error during the forecast processing: ${message}`);
-  }
-}
+import { ForecastProcessingInternalError } from './ForecastProcessingInternalError';
 
 export class Forecast {
   constructor(protected stormGlass = new StormGlass()) {}
