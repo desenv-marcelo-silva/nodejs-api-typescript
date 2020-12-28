@@ -1,5 +1,7 @@
 import { StormGlass } from '@src/clients/stormGlass';
-import { Forecast, Beach, BeachPosition } from '@src/services/forecast';
+import { Forecast } from '@src/services/forecast';
+import { Beach } from '@src/services/Beach';
+import { BeachPosition } from '@src/services/BeachPosition';
 
 import stormGlassNormalizedResponseWeather3HoursFixture from '@test/fixtures/stormglass_normalized_response_3_hours.json';
 
