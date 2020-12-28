@@ -16,7 +16,7 @@ export class SetupServer extends Server {
 
   public init(): void {
     this.setupExpress();
-    this.setupControllers()
+    this.setupControllers();
   }
 
   private setupExpress(): void {
