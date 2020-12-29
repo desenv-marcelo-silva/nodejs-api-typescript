@@ -2,7 +2,7 @@ import { Server } from '@overnightjs/core';
 import { Application } from 'express';
 import bodyParser from 'body-parser';
 
-import '@src/util/module-alias';
+import './util/module-alias';
 
 import * as database from '@src/database';
 
@@ -16,6 +16,12 @@ export class SetupServer extends Server {
 
   public getApp(): Application {
     return this.app;
+  }
+
+  public start(): void {
+    this.app.listen(this.port, () => {
+      console.info('Server listening on port:', this.port);
+    });
   }
 
   public async init(): Promise<void> {
