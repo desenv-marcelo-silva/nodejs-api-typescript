@@ -22,12 +22,10 @@ export class StormGlass {
       const { data } = await this.request.get<StormGlassForecastResponse>(
         `${stormGlassResourceConfig.get('apiUrl')}/weather/point?params=${
           this.stormGlassAPIParams
-        }&source=${
-          this.stormGlassAPISource
-        }&end=159211380&lat=${lat}&lng=${lng}`,
+        }&source=${this.stormGlassAPISource}&lat=${lat}&lng=${lng}`,
         {
           headers: {
-            Authorization: `${stormGlassResourceConfig.get('apiUrl')}`,
+            Authorization: `${stormGlassResourceConfig.get('apiToken')}`,
           },
         }
       );
