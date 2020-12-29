@@ -1,9 +1,10 @@
-import { ForecastPoint } from './../clients/ForecastPoint';
+import { ForecastPoint } from '@src/clients/ForecastPoint';
 import { StormGlass } from '@src/clients/stormGlass';
-import { Beach } from './Beach';
-import { BeachForecast } from './BeachForecast';
-import { TimeForecast } from './TimeForecast';
-import { ForecastProcessingInternalError } from './ForecastProcessingInternalError';
+import { Beach } from '@src/models/beach';
+import { BeachForecast } from '@src/services/BeachForecast';
+import { TimeForecast } from '@src/services/TimeForecast';
+
+import { ForecastProcessingInternalError } from '@src/services/ForecastProcessingInternalError';
 
 export class Forecast {
   constructor(protected stormGlass = new StormGlass()) {}
