@@ -1,8 +1,8 @@
 {
   "App": {
     "resources": {
-      "StormGlass": {
-        "apiToken": "test-token-here"
+      "stormGlass": {
+        "apiToken": "fake-token-api-here"
       }
     }
   }
