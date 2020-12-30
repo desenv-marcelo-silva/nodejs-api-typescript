@@ -8,7 +8,7 @@ import { ClientRequestError } from './ClientRequestError';
 import { StormGlassResponseError } from './StormGlassResponseError';
 
 const stormGlassResourceConfig: IConfig = config.get(
-  'App.resources.StormGlass'
+  'App.resources.stormGlass'
 );
 
 export class StormGlass {
