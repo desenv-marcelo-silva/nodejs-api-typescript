@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 export default class AuthService {
   public static async hashPassword(
@@ -13,5 +14,11 @@ export default class AuthService {
     password: string
   ): Promise<boolean> {
     return await bcrypt.compare(password, hashPassword);
+  }
+
+  public static generateToken(payload: object): string {
+    return jwt.sign(payload, 'test', {
+      expiresIn: 1000,
+    });
   }
 }
