@@ -1,7 +1,7 @@
 import nock from 'nock';
 
 import AuthService from '@src/services/auth';
-import { BeachPosition } from '@src/services/BeachPosition';
+import { GeoPosition } from '@src/services/BeachPosition';
 
 import { Beach } from '@src/models/beach';
 import { User } from '@src/models/user';
@@ -28,7 +28,7 @@ describe('Beach forecast functional tests', () => {
       lat: -33.792726,
       lng: 151.289824,
       name: 'Manly',
-      position: BeachPosition.E,
+      position: GeoPosition.E,
       user: user.id,
     };
 

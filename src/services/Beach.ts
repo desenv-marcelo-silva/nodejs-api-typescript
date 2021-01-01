@@ -1,8 +1,8 @@
-import { BeachPosition } from './BeachPosition';
+import { GeoPosition } from './BeachPosition';
 export interface Beach {
   _id?: string;
   name: string;
-  position: BeachPosition;
+  position: GeoPosition;
   lat: number;
   lng: number;
   user: string;

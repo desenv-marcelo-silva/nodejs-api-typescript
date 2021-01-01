@@ -2,7 +2,7 @@ import { StormGlass } from '@src/clients/stormGlass';
 import { Forecast } from '@src/services/forecast';
 import { ForecastProcessingInternalError } from '@src/services/ForecastProcessingInternalError';
 import { Beach } from '@src/services/Beach';
-import { BeachPosition } from '@src/services/BeachPosition';
+import { GeoPosition } from '@src/services/BeachPosition';
 
 import stormGlassNormalizedResponseWeather3HoursFixture from '@test/fixtures/stormglass_normalized_response_3_hours.json';
 
@@ -19,7 +19,7 @@ describe('Forecast service', () => {
     const beaches: Beach[] = [
       {
         name: 'Manly',
-        position: BeachPosition.E,
+        position: GeoPosition.E,
         lat: -33.792726,
         lng: 151.289824,
         user: 'some-user-id',
@@ -104,7 +104,7 @@ describe('Forecast service', () => {
     const beaches: Beach[] = [
       {
         name: 'Manly',
-        position: BeachPosition.E,
+        position: GeoPosition.E,
         lat: -33.792726,
         lng: 151.289824,
         user: 'some-user-id',
