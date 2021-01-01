@@ -4,6 +4,9 @@
       "stormGlass": {
         "apiToken": "fake-token-api-here"
       }
+    },
+    "logger": {
+      "enabled": false
     }
   }
 }
