@@ -5,6 +5,7 @@ import { BeachForecast } from '@src/services/BeachForecast';
 import { TimeForecast } from '@src/services/TimeForecast';
 
 import { ForecastProcessingInternalError } from '@src/services/ForecastProcessingInternalError';
+import logger from '@src/logger';
 
 export class Forecast {
   constructor(protected stormGlass = new StormGlass()) {}
@@ -12,6 +13,7 @@ export class Forecast {
   public async processForecastForBeaches(
     beaches: Beach[]
   ): Promise<TimeForecast[]> {
+    logger.info(`Preparing forecast for ${beaches.length} beaches.`);
     const pointsWithCorrectSources: BeachForecast[] = [];
     try {
       for (const beach of beaches) {
@@ -22,6 +24,7 @@ export class Forecast {
       }
       return this.mapForecastByTime(pointsWithCorrectSources);
     } catch (err) {
+      logger.error(err);
       throw new ForecastProcessingInternalError(err.message);
     }
   }

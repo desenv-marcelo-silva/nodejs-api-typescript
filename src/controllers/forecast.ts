@@ -5,6 +5,7 @@ import { Forecast } from '@src/services/forecast';
 import { authMiddleware } from '@src/middlewares/auth';
 
 import { Beach } from '@src/models/beach';
+import logger from '@src/logger';
 
 const forecast = new Forecast();
 
@@ -22,6 +23,7 @@ export class ForecastController {
 
       res.send(forecastData);
     } catch (error) {
+      logger.error(error);
       res.status(500).send({ error: 'Something went wrong' });
     }
   }

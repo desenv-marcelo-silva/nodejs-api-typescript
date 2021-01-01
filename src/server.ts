@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 import './util/module-alias';
 
+import logger from '@src/logger';
 import * as database from '@src/database';
 
 import { ForecastController } from '@src/controllers/forecast';
@@ -21,7 +22,7 @@ export class SetupServer extends Server {
 
   public start(): void {
     this.app.listen(this.port, () => {
-      console.info('Server listening on port:', this.port);
+      logger.info(`Server listening on port: ${this.port}`);
     });
   }
 
