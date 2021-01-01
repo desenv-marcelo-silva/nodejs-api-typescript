@@ -1,7 +1,7 @@
 import nock from 'nock';
 
 import AuthService from '@src/services/auth';
-import { GeoPosition } from '@src/services/BeachPosition';
+import { GeoPosition } from '@src/services/GeoPosition';
 
 import { Beach } from '@src/models/beach';
 import { User } from '@src/models/user';

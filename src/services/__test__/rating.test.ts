@@ -1,4 +1,4 @@
-import { GeoPosition } from '@src/services/BeachPosition';
+import { GeoPosition } from '@src/services/GeoPosition';
 import { Beach } from '@src/models/beach';
 import { Rating } from '@src/services/rating';
 

@@ -1,4 +1,4 @@
-import { GeoPosition } from './BeachPosition';
+import { GeoPosition } from '@src/services/GeoPosition';
 export interface Beach {
   _id?: string;
   name: string;
