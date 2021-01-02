@@ -1,4 +1,4 @@
-import { ApiError } from '@src/util/errors/api-error';
+import ApiError from '@src/util/errors/api-error';
 import {
   ClassMiddleware,
   Controller,
