@@ -13,7 +13,7 @@
     "start:dev": "ts-node-dev --transpile-only 'src/index.ts' | pino-pretty -c",
     "test:functional": "jest --projects ./test --runInBand",
     "test:unit": "jest",
-    "test": "yarn test:unit && yarn test:functional"
+    "test": "yarn lint && yarn style:check && yarn test:unit && yarn test:functional"
   },
   "repository": {
     "type": "git",
