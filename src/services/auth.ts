@@ -23,7 +23,7 @@ export default class AuthService {
     return await bcrypt.compare(password, hashPassword);
   }
 
-  public static generateToken(payload: object): string {
+  public static generateToken(payload: Record<string, any>): string {
     return jwt.sign(payload, config.get('App.auth.key'), {
       expiresIn: config.get('App.auth.tokenExpiresIn'),
     });
