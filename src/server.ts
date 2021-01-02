@@ -5,6 +5,13 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import expressPino from 'express-pino-logger';
 
+/* primeiro swaggerUi depois o validator */
+import apiSchema from './api.schema.json';
+import swaggerUi from 'swagger-ui-express';
+
+import * as OpenApiValidator from 'express-openapi-validator';
+import { OpenAPIV3 } from 'express-openapi-validator/dist/framework/types';
+
 import './util/module-alias';
 
 import logger from '@src/logger';
@@ -31,8 +38,13 @@ export class SetupServer extends Server {
 
   public async init(): Promise<void> {
     this.setupExpress();
+    await this.docSetup();
     this.setupControllers();
     await this.databaseSetup();
+  }
+
+  public async close(): Promise<void> {
+    await database.close();
   }
 
   private setupExpress(): void {
@@ -65,7 +77,15 @@ export class SetupServer extends Server {
     await database.connect();
   }
 
-  public async close(): Promise<void> {
-    await database.close();
+  private async docSetup(): Promise<void> {
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(apiSchema));
+    logger.info(OpenApiValidator);
+    this.app.use(
+      OpenApiValidator.middleware({
+        apiSpec: apiSchema as OpenAPIV3.Document,
+        validateRequests: true,
+        validateResponses: true,
+      })
+    );
   }
 }
